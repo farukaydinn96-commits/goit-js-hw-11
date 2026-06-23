@@ -19,6 +19,10 @@ form.addEventListener("submit", (e) => {
   const query = e.currentTarget.elements.searchQuery.value.trim();
 
   if (query === "") {
+    iziToast.warning({
+      message: "Please enter a search query!",
+      position: "topRight",
+    });
     return;
   }
 
@@ -79,8 +83,8 @@ function renderGallery(images) {
       }) => `
     <li class="gallery-item">
       <a class="gallery-link" href="${largeImageURL}">
-  <img class="gallery-image" src="${webformatURL}" alt="${tags}" />
-</a>
+        <img class="gallery-image" src="${webformatURL}" alt="${tags}" />
+      </a>
       <div class="info">
         <p class="info-item"><b>Likes</b><span>${likes}</span></p>
         <p class="info-item"><b>Views</b><span>${views}</span></p>
